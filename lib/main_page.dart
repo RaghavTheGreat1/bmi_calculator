@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'material_card.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -58,14 +59,9 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             Expanded(
-              child: Container(
-                height: 200,
-                width: double.infinity,
-                margin: EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.black,
-                ),
+              child: GestureDetector(
+                onTap: () {},
+                child: MaterialCard(),
               ),
             ),
           ],
@@ -74,3 +70,5 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+
