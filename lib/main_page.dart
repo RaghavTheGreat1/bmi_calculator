@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'material_card.dart';
+import 'themes/colors.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -61,7 +62,7 @@ class _MainPageState extends State<MainPage> {
             Expanded(
               child: GestureDetector(
                 onTap: () {},
-                child: MaterialCard(),
+                child: MaterialCard(materialCardColor: kMaterialCardColor, ),
               ),
             ),
           ],
