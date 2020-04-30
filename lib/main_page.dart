@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'material_card.dart';
 import 'themes/colors.dart';
+import 'tappable_material_cards.dart';
+
+
+
+
+
+
 
 class MainPage extends StatefulWidget {
   @override
@@ -15,10 +22,10 @@ class _MainPageState extends State<MainPage> {
         Row(
           children: <Widget>[
             Expanded(
-              child: MaterialCard(materialCardColor: kMaterialCardColor,),
+              child: TappableMaterialCard(),
             ),
             Expanded(
-              child: MaterialCard(materialCardColor: kMaterialCardColor,),
+              child: TappableMaterialCard(),
             ),
           ],
         ),
@@ -28,13 +35,10 @@ class _MainPageState extends State<MainPage> {
         Row(
           children: <Widget>[
             Expanded(
-              child: MaterialCard(materialCardColor: kMaterialCardColor,),
+              child: TappableMaterialCard(),
             ),
             Expanded(
-              child: GestureDetector(
-                onTap: () {},
-                child: MaterialCard(materialCardColor: kMaterialCardColor, ),
-              ),
+              child: TappableMaterialCard(),
             ),
           ],
         ),
@@ -42,5 +46,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+
 
 
