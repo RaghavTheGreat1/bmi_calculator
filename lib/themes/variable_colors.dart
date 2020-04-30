@@ -3,4 +3,5 @@ import 'constant_colors.dart';
 
 
 Color materialCardLabelTextColor = kInactiveMaterialCardLabelTextColor;
+Color materialCardLabelIconColor = kInactiveMaterialCardLabelIconColor;
 

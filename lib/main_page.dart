@@ -38,6 +38,7 @@ class _MainPageState extends State<MainPage> {
                 onMaterialCardTap: () {
                   setState(() {
                     materialCardLabelTextColor == kInactiveMaterialCardLabelTextColor ? materialCardLabelTextColor = kActiveMaterialCardLabelTextColor : materialCardLabelTextColor = kInactiveMaterialCardLabelTextColor;
+                    materialCardLabelIconColor == kInactiveMaterialCardLabelIconColor ? materialCardLabelIconColor = kActiveMaterialCardLabelIconColor : materialCardLabelIconColor = kInactiveMaterialCardLabelIconColor;
                   });
                 },
               ),
@@ -59,6 +60,7 @@ class _MainPageState extends State<MainPage> {
                 onMaterialCardTap: () {
                   setState(() {
                     materialCardLabelTextColor == kInactiveMaterialCardLabelTextColor ? materialCardLabelTextColor = kActiveMaterialCardLabelTextColor : materialCardLabelTextColor = kInactiveMaterialCardLabelTextColor;
+                    materialCardLabelIconColor == kInactiveMaterialCardLabelIconColor ? materialCardLabelIconColor = kActiveMaterialCardLabelIconColor : materialCardLabelIconColor = kInactiveMaterialCardLabelIconColor;
                   });
                 },
               ),

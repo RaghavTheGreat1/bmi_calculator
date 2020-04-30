@@ -13,3 +13,5 @@ const Color kActiveMaterialCardLabelTextColor = Colors.white;
 const Color kBottomButtonColor = Color(0xFFEB1555);
 
 const Color kIconColor = Colors.white;
+const Color kInactiveMaterialCardLabelIconColor = Color(0xFF8D8E98);
+const Color kActiveMaterialCardLabelIconColor = Colors.white;
