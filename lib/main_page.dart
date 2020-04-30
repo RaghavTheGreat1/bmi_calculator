@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'material_card.dart';
 import 'themes/colors.dart';
 import 'tappable_material_cards.dart';
-
-
-
-
-
-
+import 'bottom_button.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -30,7 +25,9 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
         Expanded(
-          child: MaterialCard(materialCardColor: kMaterialCardColor,),
+          child: MaterialCard(
+            materialCardColor: kMaterialCardColor,
+          ),
         ),
         Row(
           children: <Widget>[
@@ -42,11 +39,8 @@ class _MainPageState extends State<MainPage> {
             ),
           ],
         ),
+        BottomButton(),
       ],
     );
   }
 }
-
-
-
-
