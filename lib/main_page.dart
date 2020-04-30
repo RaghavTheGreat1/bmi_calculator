@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 //import 'package:google_fonts/google_fonts.dart';
 import 'material_card.dart';
-import 'themes/colors.dart';
+import 'package:bmi_calculator/themes/constant_colors.dart';
 import 'tappable_material_cards.dart';
 import 'bottom_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'themes/customized_icon.dart';
 import 'themes/material_card_label.dart';
+import 'themes/variable_colors.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -34,6 +35,11 @@ class _MainPageState extends State<MainPage> {
                     ],
                   ),
                 ),
+                onMaterialCardTap: () {
+                  setState(() {
+                    materialCardLabelTextColor == kInactiveMaterialCardLabelTextColor ? materialCardLabelTextColor = kActiveMaterialCardLabelTextColor : materialCardLabelTextColor = kInactiveMaterialCardLabelTextColor;
+                  });
+                },
               ),
             ),
             Expanded(
@@ -50,6 +56,11 @@ class _MainPageState extends State<MainPage> {
                     ],
                   ),
                 ),
+                onMaterialCardTap: () {
+                  setState(() {
+                    materialCardLabelTextColor == kInactiveMaterialCardLabelTextColor ? materialCardLabelTextColor = kActiveMaterialCardLabelTextColor : materialCardLabelTextColor = kInactiveMaterialCardLabelTextColor;
+                  });
+                },
               ),
             ),
           ],

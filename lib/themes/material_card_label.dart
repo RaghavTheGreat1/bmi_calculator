@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'colors.dart';
+import 'variable_colors.dart';
+//import 'package:bmi_calculator/themes/constant_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MaterialCardLabel extends StatelessWidget {
-  final Color labelTextColor = kMaterialCardLabelTextColor;
+  final Color labelTextColor = materialCardLabelTextColor;
   final String labelText;
 
   MaterialCardLabel({@required this.labelText,});
@@ -14,7 +15,7 @@ class MaterialCardLabel extends StatelessWidget {
       labelText,
       style: GoogleFonts.openSans(
         textStyle: TextStyle(
-          color: kMaterialCardLabelTextColor,
+          color: materialCardLabelTextColor,
           fontSize: 18,
           fontWeight: FontWeight.w600,
         ),

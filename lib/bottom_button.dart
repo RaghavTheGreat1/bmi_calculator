@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'themes/colors.dart';
+import 'package:bmi_calculator/themes/constant_colors.dart';
 
 class BottomButton extends StatelessWidget {
   
