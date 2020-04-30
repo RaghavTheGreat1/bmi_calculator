@@ -15,49 +15,20 @@ class _MainPageState extends State<MainPage> {
         Row(
           children: <Widget>[
             Expanded(
-              child: Container(
-                height: 200,
-                margin: EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.black,
-                ),
-              ),
+              child: MaterialCard(materialCardColor: kMaterialCardColor,),
             ),
             Expanded(
-              child: Container(
-                height: 200,
-                margin: EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.black,
-                ),
-              ),
+              child: MaterialCard(materialCardColor: kMaterialCardColor,),
             ),
           ],
         ),
         Expanded(
-          child: Container(
-            height: double.infinity,
-            margin: EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.black,
-            ),
-          ),
+          child: MaterialCard(materialCardColor: kMaterialCardColor,),
         ),
         Row(
           children: <Widget>[
             Expanded(
-              child: Container(
-                height: 200,
-                width: double.infinity,
-                margin: EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.black,
-                ),
-              ),
+              child: MaterialCard(materialCardColor: kMaterialCardColor,),
             ),
             Expanded(
               child: GestureDetector(
