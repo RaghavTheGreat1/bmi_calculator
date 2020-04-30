@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
 import 'material_card.dart';
 import 'themes/colors.dart';
 import 'tappable_material_cards.dart';
 import 'bottom_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'themes/customized_icon.dart';
+import 'themes/material_card_label.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -23,21 +25,12 @@ class _MainPageState extends State<MainPage> {
                 childCard: Center(
                   child: Column(
                     children: <Widget>[
-                      Icon(
-                        FontAwesomeIcons.mars,
-                        color: kIconColor,
-                        size: 80,
+                      CustomizedIcon(
+                        icon: FontAwesomeIcons.mars,
                       ),
-                      Text(
-                        "MALE",
-                        style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      )
+                      MaterialCardLabel(
+                        labelText: "MALE",
+                      ),
                     ],
                   ),
                 ),
@@ -48,21 +41,12 @@ class _MainPageState extends State<MainPage> {
                 childCard: Center(
                   child: Column(
                     children: <Widget>[
-                      Icon(
-                        FontAwesomeIcons.venus,
-                        color: kIconColor,
-                        size: 80,
+                      CustomizedIcon(
+                        icon: FontAwesomeIcons.venus,
                       ),
-                      Text(
-                        "FEMALE",
-                        style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      )
+                      MaterialCardLabel(
+                        labelText: "FEMALE",
+                      ),
                     ],
                   ),
                 ),
