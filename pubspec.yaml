@@ -19,6 +19,7 @@ environment:
 dependencies:
 
   google_fonts: ^1.0.0
+  font_awesome_flutter: ^8.8.1
 
   flutter:
     sdk: flutter

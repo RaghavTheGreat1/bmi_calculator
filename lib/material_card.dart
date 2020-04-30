@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MaterialCard extends StatelessWidget {
   final Color materialCardColor;
-  final Widget childCard;
+  final childCard;
 
   MaterialCard({@required this.materialCardColor, this.childCard});
 
