@@ -15,3 +15,6 @@ const Color kActiveLabelAndIconColor = Colors.white;
 const Color kActiveTrackColor = Colors.white;
 const Color kThumbColor = Color(0xFFEB1555);
 const Color kInactiveTrackColor = Color(0x8D8E98);
+
+
+const Color kMaterialButtonColor = Color(0xFF1C1F32);

@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/bold_text_label.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +9,7 @@ import 'bottom_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'themes/customized_icon.dart';
 import 'themes/material_card_label.dart';
+import 'package:bmi_calculator/rounded_icon_button.dart';
 
 enum Gender {
   male,
@@ -22,6 +24,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   Gender selectedGender;
   double height = 160;
+  double weight = 60;
+  double age = 19;
 
   @override
   Widget build(BuildContext context) {
@@ -98,15 +102,8 @@ class _MainPageState extends State<MainPage> {
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
                   children: <Widget>[
-                    Text(
+                    BoldTextLabel(
                       height.toStringAsFixed(0),
-                      style: GoogleFonts.openSans(
-                        textStyle: TextStyle(
-                          fontSize: 80,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
                     ),
                     Text(
                       "CM",
@@ -143,11 +140,94 @@ class _MainPageState extends State<MainPage> {
         Row(
           children: <Widget>[
             Expanded(
-              child: TappableMaterialCard(),
+              child: MaterialCard(
+                materialCardColor: kMaterialCardColor,
+                childCard: Column(
+                  children: <Widget>[
+                    MaterialCardLabel(
+                      labelText: 'WEIGHT',
+                      labelTextColor: Color(0xFF8D8E98),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: <Widget>[
+                        BoldTextLabel(
+                          weight.toStringAsFixed(0),
+                        ),
+                        MaterialCardLabel(labelText: "KG", labelTextColor: Color(0xFF8D8E98))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RoundedIconButton(
+                          icon: FontAwesomeIcons.minus,
+                          onUserTap: () {
+                            setState(() {
+                              weight > 1 ? weight-- : weight = 1;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        RoundedIconButton(
+                          icon: FontAwesomeIcons.plus,
+                          onUserTap: () {
+                            setState(() {
+                              weight < 635 ? weight++ : weight = 635;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
             Expanded(
-              child: TappableMaterialCard(),
-            ),
+                child: MaterialCard(
+              materialCardColor: kMaterialCardColor,
+              childCard: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  MaterialCardLabel(
+                    labelText: 'AGE',
+                    labelTextColor: Color(0xFF8D8E98),
+                  ),
+                  BoldTextLabel(
+                    age.toStringAsFixed(0),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      RoundedIconButton(
+                        icon: FontAwesomeIcons.minus,
+                        onUserTap: () {
+                          setState(() {
+                            age > 1 ? age-- : age = 1;
+                          });
+                        },
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      RoundedIconButton(
+                        icon: FontAwesomeIcons.plus,
+                        onUserTap: () {
+                          setState(() {
+                            age < 150 ? age++ : age = 150;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )),
           ],
         ),
         BottomButton(),
