@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'themes/customized_icon.dart';
 import 'themes/material_card_label.dart';
 import 'package:bmi_calculator/rounded_icon_button.dart';
+import 'result_page.dart';
 
 enum Gender {
   male,
@@ -156,7 +157,8 @@ class _MainPageState extends State<MainPage> {
                         BoldTextLabel(
                           weight.toStringAsFixed(0),
                         ),
-                        MaterialCardLabel(labelText: "KG", labelTextColor: Color(0xFF8D8E98))
+                        MaterialCardLabel(
+                            labelText: "KG", labelTextColor: Color(0xFF8D8E98))
                       ],
                     ),
                     Row(
@@ -230,7 +232,15 @@ class _MainPageState extends State<MainPage> {
             )),
           ],
         ),
-        BottomButton(displayText: 'CALCULATE',),
+        BottomButton(
+          displayText: 'CALCULATE',
+          onUserTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ResultPage()),
+            );
+          },
+        ),
       ],
     );
   }

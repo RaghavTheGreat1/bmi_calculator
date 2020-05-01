@@ -4,12 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class BottomButton extends StatelessWidget {
   final String displayText;
+  final Function onUserTap; 
 
-  BottomButton({this.displayText});
+  BottomButton({this.displayText, this.onUserTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onUserTap,
       child: Container(
         padding: EdgeInsets.all(20),
         height: 75,
