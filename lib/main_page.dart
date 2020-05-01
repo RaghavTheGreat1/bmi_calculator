@@ -230,7 +230,7 @@ class _MainPageState extends State<MainPage> {
             )),
           ],
         ),
-        BottomButton(),
+        BottomButton(displayText: 'CALCULATE',),
       ],
     );
   }
