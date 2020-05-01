@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 //import 'package:google_fonts/google_fonts.dart';
 import 'material_card.dart';
 import 'package:bmi_calculator/themes/constant_colors.dart';
@@ -20,6 +21,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   Gender selectedGender;
+  double height = 160;
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +86,58 @@ class _MainPageState extends State<MainPage> {
         Expanded(
           child: MaterialCard(
             materialCardColor: kMaterialCardColor,
+            childCard: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                MaterialCardLabel(
+                  labelText: "HEIGHT",
+                  labelTextColor: Color(0xFF8D8E98),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: <Widget>[
+                    Text(
+                      height.toStringAsFixed(0),
+                      style: GoogleFonts.openSans(
+                        textStyle: TextStyle(
+                          fontSize: 80,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "CM",
+                      style: GoogleFonts.openSans(
+                        textStyle: TextStyle(
+                          color: Color(0xFF8D8E98),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SliderTheme(
+                  data: SliderThemeData(
+                    thumbColor: kThumbColor,
+                    activeTrackColor: kActiveTrackColor,
+                    inactiveTickMarkColor: kInactiveTrackColor,
+                  ),
+                  child: Slider(
+                    min: 50.0,
+                    max: 280.0,
+                    value: height,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue;
+                        print(height);
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         Row(
