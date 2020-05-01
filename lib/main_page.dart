@@ -7,7 +7,11 @@ import 'bottom_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'themes/customized_icon.dart';
 import 'themes/material_card_label.dart';
-import 'themes/variable_colors.dart';
+
+enum Gender {
+  male,
+  female,
+}
 
 class MainPage extends StatefulWidget {
   @override
@@ -15,6 +19,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  Gender selectedGender;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,44 +29,52 @@ class _MainPageState extends State<MainPage> {
           children: <Widget>[
             Expanded(
               child: TappableMaterialCard(
-                childCard: Center(
-                  child: Column(
-                    children: <Widget>[
-                      CustomizedIcon(
-                        icon: FontAwesomeIcons.mars,
-                      ),
-                      MaterialCardLabel(
-                        labelText: "MALE",
-                      ),
-                    ],
-                  ),
+                childCard: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CustomizedIcon(
+                      icon: FontAwesomeIcons.mars,
+                      iconColor: selectedGender == Gender.male
+                          ? kActiveLabelAndIconColor
+                          : kInactiveLabelAndIconColor,
+                    ),
+                    MaterialCardLabel(
+                      labelText: "MALE",
+                      labelTextColor: selectedGender == Gender.male
+                          ? kActiveLabelAndIconColor
+                          : kInactiveLabelAndIconColor,
+                    ),
+                  ],
                 ),
                 onMaterialCardTap: () {
                   setState(() {
-                    materialCardLabelTextColor == kInactiveMaterialCardLabelTextColor ? materialCardLabelTextColor = kActiveMaterialCardLabelTextColor : materialCardLabelTextColor = kInactiveMaterialCardLabelTextColor;
-                    materialCardLabelIconColor == kInactiveMaterialCardLabelIconColor ? materialCardLabelIconColor = kActiveMaterialCardLabelIconColor : materialCardLabelIconColor = kInactiveMaterialCardLabelIconColor;
+                    selectedGender = Gender.male;
                   });
                 },
               ),
             ),
             Expanded(
               child: TappableMaterialCard(
-                childCard: Center(
-                  child: Column(
-                    children: <Widget>[
-                      CustomizedIcon(
-                        icon: FontAwesomeIcons.venus,
-                      ),
-                      MaterialCardLabel(
-                        labelText: "FEMALE",
-                      ),
-                    ],
-                  ),
+                childCard: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CustomizedIcon(
+                      icon: FontAwesomeIcons.venus,
+                      iconColor: selectedGender == Gender.female
+                          ? kActiveLabelAndIconColor
+                          : kInactiveLabelAndIconColor,
+                    ),
+                    MaterialCardLabel(
+                      labelText: "FEMALE",
+                      labelTextColor: selectedGender == Gender.female
+                          ? kActiveLabelAndIconColor
+                          : kInactiveLabelAndIconColor,
+                    ),
+                  ],
                 ),
                 onMaterialCardTap: () {
                   setState(() {
-                    materialCardLabelTextColor == kInactiveMaterialCardLabelTextColor ? materialCardLabelTextColor = kActiveMaterialCardLabelTextColor : materialCardLabelTextColor = kInactiveMaterialCardLabelTextColor;
-                    materialCardLabelIconColor == kInactiveMaterialCardLabelIconColor ? materialCardLabelIconColor = kActiveMaterialCardLabelIconColor : materialCardLabelIconColor = kInactiveMaterialCardLabelIconColor;
+                    selectedGender = Gender.female;
                   });
                 },
               ),
