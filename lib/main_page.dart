@@ -236,17 +236,17 @@ class _MainPageState extends State<MainPage> {
         BottomButton(
           displayText: 'CALCULATE',
           onUserTap: () {
+            BmiFunctionality bmiCalculation = BmiFunctionality(
+              height: height,
+              weight: weight,
+            );
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) {
-                BmiFunctionality bmiFunctionality = BmiFunctionality(
-                  height: height,
-                  weight: weight,
-                );
                 return ResultPage(
-                  bmiInterpret: bmiFunctionality.bmiInterpretation(),
-                  bmiResults: bmiFunctionality.bmiCalculation(),
-                  bmiTxt: bmiFunctionality.bmiResultText(),
+                  bmiInterpret: bmiCalculation.bmiInterpretation(),
+                  bmiResults: bmiCalculation.bmiCalculation(),
+                  bmiTxt: bmiCalculation.bmiResultText(),
                 );
               }),
             );

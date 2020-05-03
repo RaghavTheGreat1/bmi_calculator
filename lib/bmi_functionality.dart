@@ -2,13 +2,13 @@ class BmiFunctionality {
 
 final double weight;
 final double height;
-double _bmiResult;
+double _bmiResult; 
 
 BmiFunctionality({this.weight, this.height});
 
 String bmiCalculation () {
-  double _bmi = weight/(height * height);
-  return _bmi.toStringAsFixed(2);
+  _bmiResult = weight/((height/100) * (height/100));
+  return _bmiResult.toStringAsFixed(2);
 }
 
 String bmiResultText () {
