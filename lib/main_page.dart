@@ -244,8 +244,8 @@ class _MainPageState extends State<MainPage> {
               context,
               MaterialPageRoute(builder: (context) {
                 return ResultPage(
-                  bmiInterpret: bmiCalculation.bmiInterpretation(),
                   bmiResults: bmiCalculation.bmiCalculation(),
+                  bmiInterpret: bmiCalculation.bmiInterpretation(),
                   bmiTxt: bmiCalculation.bmiResultText(),
                 );
               }),
