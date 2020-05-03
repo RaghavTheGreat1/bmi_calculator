@@ -11,6 +11,7 @@ import 'themes/customized_icon.dart';
 import 'themes/material_card_label.dart';
 import 'package:bmi_calculator/rounded_icon_button.dart';
 import 'result_page.dart';
+import 'bmi_functionality.dart';
 
 enum Gender {
   male,
@@ -237,7 +238,17 @@ class _MainPageState extends State<MainPage> {
           onUserTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ResultPage()),
+              MaterialPageRoute(builder: (context) {
+                BmiFunctionality bmiFunctionality = BmiFunctionality(
+                  height: height,
+                  weight: weight,
+                );
+                return ResultPage(
+                  bmiInterpret: bmiFunctionality.bmiInterpretation(),
+                  bmiResults: bmiFunctionality.bmiCalculation(),
+                  bmiTxt: bmiFunctionality.bmiResultText(),
+                );
+              }),
             );
           },
         ),

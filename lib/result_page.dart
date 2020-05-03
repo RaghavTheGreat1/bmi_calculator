@@ -7,6 +7,12 @@ import 'bold_text_label.dart';
 import 'bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
+  final String bmiResults;
+  final String bmiInterpret;
+  final String bmiTxt;
+
+  ResultPage({this.bmiInterpret, this.bmiResults, this.bmiTxt,});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,10 +47,11 @@ class ResultPage extends StatelessWidget {
               child: MaterialCard(
                 materialCardColor: kMaterialCardColor,
                 childCard: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    MaterialCardLabel(labelText: 'Overweight', labelTextColor: Colors.white),
-                    BoldTextLabel('21.9'),
-                    MaterialCardLabel(labelText: "Good Work", labelTextColor: Colors.white)
+                    MaterialCardLabel(labelText: bmiTxt, labelTextColor: Colors.white),
+                    BoldTextLabel(bmiResults),
+                    MaterialCardLabel(labelText: bmiInterpret, labelTextColor: Colors.white)
                   ],
                 ),
               ),
