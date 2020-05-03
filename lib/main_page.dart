@@ -247,6 +247,7 @@ class _MainPageState extends State<MainPage> {
                   bmiResults: bmiCalculation.bmiCalculation(),
                   bmiInterpret: bmiCalculation.bmiInterpretation(),
                   bmiTxt: bmiCalculation.bmiResultText(),
+                  bmiTxtColor: bmiCalculation.bmiResultTextColor()
                 );
               }),
             );

@@ -12,6 +12,7 @@ class MaterialCardLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       labelText,
+      textAlign: TextAlign.center,
       style: GoogleFonts.openSans(
         textStyle: TextStyle(
           color: labelTextColor,

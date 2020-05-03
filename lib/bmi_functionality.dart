@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 class BmiFunctionality {
 
 final double weight;
@@ -31,7 +32,15 @@ String bmiInterpretation() {
       return 'You have a lower than normal body weight. You can eat a bit more.';
     }
   }
+Color bmiResultTextColor () {
+  if (_bmiResult >= 25) {
+      return Colors.red;
+    } else if (_bmiResult > 18.5) {
+      return Colors.green;
+    } else {
+      return Colors.yellow;
+    }
 
-
+}
 
 }

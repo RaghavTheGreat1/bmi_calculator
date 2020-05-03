@@ -10,8 +10,9 @@ class ResultPage extends StatelessWidget {
   final String bmiResults;
   final String bmiInterpret;
   final String bmiTxt;
+  final Color bmiTxtColor;
 
-  ResultPage({this.bmiInterpret, this.bmiResults, this.bmiTxt,});
+  ResultPage({this.bmiInterpret, this.bmiResults, this.bmiTxt, this.bmiTxtColor});
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +35,7 @@ class ResultPage extends StatelessWidget {
         body: Column(
           children: <Widget>[
             Container(
-              child: Text(
-                "Your Result",
-                style: GoogleFonts.openSans(
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              child: BoldTextLabel("Your Result", textSize: 40,)
             ),
             Expanded(
               child: MaterialCard(
@@ -49,9 +43,9 @@ class ResultPage extends StatelessWidget {
                 childCard: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    MaterialCardLabel(labelText: bmiTxt, labelTextColor: Colors.white),
+                    MaterialCardLabel(labelText: bmiTxt, labelTextColor: bmiTxtColor),
                     BoldTextLabel(bmiResults),
-                    MaterialCardLabel(labelText: bmiInterpret, labelTextColor: Colors.white)
+                    MaterialCardLabel(labelText: bmiInterpret, labelTextColor: Colors.white, )
                   ],
                 ),
               ),

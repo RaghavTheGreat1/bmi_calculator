@@ -3,9 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class BoldTextLabel extends StatelessWidget {
   final String text;
+  final double textSize;
   BoldTextLabel(
-    this.text, );
+    this.text, {
+    this.textSize,
+  });
 
+  
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +17,7 @@ class BoldTextLabel extends StatelessWidget {
       text,
       style: GoogleFonts.openSans(
         textStyle: TextStyle(
-          fontSize: 80,
+          fontSize: textSize == null ? 80.0 : textSize,
           color: Colors.white,
           fontWeight: FontWeight.w700,
         ),
