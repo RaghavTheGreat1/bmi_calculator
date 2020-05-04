@@ -5,6 +5,8 @@ import 'material_card.dart';
 import 'themes/material_card_label.dart';
 import 'bold_text_label.dart';
 import 'bottom_button.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'about.dart';
 
 class ResultPage extends StatelessWidget {
   final String bmiResults;
@@ -12,7 +14,8 @@ class ResultPage extends StatelessWidget {
   final String bmiTxt;
   final Color bmiTxtColor;
 
-  ResultPage({this.bmiInterpret, this.bmiResults, this.bmiTxt, this.bmiTxtColor});
+  ResultPage(
+      {this.bmiInterpret, this.bmiResults, this.bmiTxt, this.bmiTxtColor});
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +34,39 @@ class ResultPage extends StatelessWidget {
             ),
           ),
           centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(FontAwesomeIcons.user, color: Colors.white),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AboutDeveloper(),
+                    ),
+                  );
+                })
+          ],
         ),
-        body: Column(
+        body: ListView(
           children: <Widget>[
             Container(
-              child: BoldTextLabel("Your Result", textSize: 40,)
-            ),
+                child: BoldTextLabel(
+              "Your Result",
+              textSize: 40,
+            )),
             Expanded(
               child: MaterialCard(
                 materialCardColor: kMaterialCardColor,
                 childCard: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    MaterialCardLabel(labelText: bmiTxt, labelTextColor: bmiTxtColor),
+                    MaterialCardLabel(
+                        labelText: bmiTxt, labelTextColor: bmiTxtColor),
                     BoldTextLabel(bmiResults),
-                    MaterialCardLabel(labelText: bmiInterpret, labelTextColor: Colors.white, )
+                    MaterialCardLabel(
+                      labelText: bmiInterpret,
+                      labelTextColor: Colors.white,
+                    )
                   ],
                 ),
               ),
