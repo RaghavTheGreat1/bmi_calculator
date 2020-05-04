@@ -31,23 +31,55 @@ class AboutDeveloper extends StatelessWidget {
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () async {
-                const url = 'https://github.com/RaghavTheGreat1/';
-                if (await canLaunch(url)) {
-                  await launch(url);
-                } else {
-                  throw 'Could not launch $url';
-                }
-              },
-              child: Container(
-                margin: EdgeInsets.all(15),
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: kInactiveLabelAndIconColor,
-                ),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () async {
+                      const url = 'https://github.com/RaghavTheGreat1/';
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(15),
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: ExactAssetImage("images/Octocat.png"),
+                        ),
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () async {
+                      const url = 'https://t.me/RaghavTheGreat1';
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(15),
+                      height: 150,
+                      width: 150,
+                      child: Image(
+                        image: AssetImage("images/telegram.png"),
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

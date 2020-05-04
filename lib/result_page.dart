@@ -47,28 +47,35 @@ class ResultPage extends StatelessWidget {
                 })
           ],
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
-            Container(
-                child: BoldTextLabel(
-              "Your Result",
-              textSize: 40,
-            )),
             Expanded(
-              child: MaterialCard(
-                materialCardColor: kMaterialCardColor,
-                childCard: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    MaterialCardLabel(
-                        labelText: bmiTxt, labelTextColor: bmiTxtColor),
-                    BoldTextLabel(bmiResults),
-                    MaterialCardLabel(
-                      labelText: bmiInterpret,
-                      labelTextColor: Colors.white,
-                    )
-                  ],
-                ),
+              child: ListView(
+                scrollDirection: Axis.vertical,
+                children: <Widget>[
+                  Container(
+                      child: BoldTextLabel(
+                    "Your Result",
+                    textSize: 40,
+                  )),
+                  Expanded(
+                    child: MaterialCard(
+                      materialCardColor: kMaterialCardColor,
+                      childCard: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MaterialCardLabel(
+                              labelText: bmiTxt, labelTextColor: bmiTxtColor),
+                          BoldTextLabel(bmiResults),
+                          MaterialCardLabel(
+                            labelText: bmiInterpret,
+                            labelTextColor: Colors.white,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             BottomButton(
