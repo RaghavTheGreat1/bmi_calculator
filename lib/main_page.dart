@@ -164,6 +164,7 @@ class _MainPageState extends State<MainPage> {
                   child: MaterialCard(
                     materialCardColor: kMaterialCardColor,
                     childCard: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         MaterialCardLabel(
                           labelText: 'WEIGHT',
