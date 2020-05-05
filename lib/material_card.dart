@@ -9,13 +9,13 @@ class MaterialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: BoxConstraints.expand(height: 210, width: 175.5),
-        child: childCard,
-        margin: EdgeInsets.all(15.0),
-        decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(10),
-    color: materialCardColor,
-        ),
-      );
+      height: 210,
+      child: childCard,
+      margin: EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: materialCardColor,
+      ),
+    );
   }
 }

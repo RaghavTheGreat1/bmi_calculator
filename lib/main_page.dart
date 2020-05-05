@@ -62,7 +62,6 @@ class _MainPageState extends State<MainPage> {
               children: <Widget>[
                 TappableMaterialCard(
                   childCard: Column(
-
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       CustomizedIcon(
@@ -161,92 +160,96 @@ class _MainPageState extends State<MainPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                MaterialCard(
-                  materialCardColor: kMaterialCardColor,
-                  childCard: Column(
-                    children: <Widget>[
-                      MaterialCardLabel(
-                        labelText: 'WEIGHT',
-                        labelTextColor: Color(0xFF8D8E98),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: <Widget>[
-                          BoldTextLabel(
-                            weight.toStringAsFixed(0),
-                          ),
-                          MaterialCardLabel(
-                              labelText: "KG",
-                              labelTextColor: Color(0xFF8D8E98))
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          RoundedIconButton(
-                            icon: FontAwesomeIcons.minus,
-                            onUserTap: () {
-                              setState(() {
-                                weight > 1 ? weight-- : weight = 1;
-                              });
-                            },
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          RoundedIconButton(
-                            icon: FontAwesomeIcons.plus,
-                            onUserTap: () {
-                              setState(() {
-                                weight < 635 ? weight++ : weight = 635;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                    ],
+                Expanded(
+                  child: MaterialCard(
+                    materialCardColor: kMaterialCardColor,
+                    childCard: Column(
+                      children: <Widget>[
+                        MaterialCardLabel(
+                          labelText: 'WEIGHT',
+                          labelTextColor: Color(0xFF8D8E98),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            BoldTextLabel(
+                              weight.toStringAsFixed(0),
+                            ),
+                            MaterialCardLabel(
+                                labelText: "KG",
+                                labelTextColor: Color(0xFF8D8E98))
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundedIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onUserTap: () {
+                                setState(() {
+                                  weight > 1 ? weight-- : weight = 1;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundedIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onUserTap: () {
+                                setState(() {
+                                  weight < 635 ? weight++ : weight = 635;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                MaterialCard(
-                  materialCardColor: kMaterialCardColor,
-                  childCard: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  MaterialCardLabel(
-                    labelText: 'AGE',
-                    labelTextColor: Color(0xFF8D8E98),
-                  ),
-                  BoldTextLabel(
-                    age.toStringAsFixed(0),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      RoundedIconButton(
-                        icon: FontAwesomeIcons.minus,
-                        onUserTap: () {
-                          setState(() {
-                            age > 1 ? age-- : age = 1;
-                          });
-                        },
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      RoundedIconButton(
-                        icon: FontAwesomeIcons.plus,
-                        onUserTap: () {
-                          setState(() {
-                            age < 150 ? age++ : age = 150;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+                Expanded(
+                  child: MaterialCard(
+                    materialCardColor: kMaterialCardColor,
+                    childCard: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        MaterialCardLabel(
+                          labelText: 'AGE',
+                          labelTextColor: Color(0xFF8D8E98),
+                        ),
+                        BoldTextLabel(
+                          age.toStringAsFixed(0),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundedIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onUserTap: () {
+                                setState(() {
+                                  age > 1 ? age-- : age = 1;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundedIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onUserTap: () {
+                                setState(() {
+                                  age < 150 ? age++ : age = 150;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
