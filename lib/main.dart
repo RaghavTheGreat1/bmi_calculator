@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'main_page.dart';
-import 'package:google_fonts/google_fonts.dart';
-//import 'themes/dark_theme.dart';
 import 'package:bmi_calculator/themes/constant_colors.dart';
+import 'package:bmi_calculator/screens/main_page.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:flutter/material.dart';
+
 
 void main() => runApp(MyApp());
 
