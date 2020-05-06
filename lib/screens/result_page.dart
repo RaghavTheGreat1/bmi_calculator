@@ -39,16 +39,7 @@ class ResultPage extends StatelessWidget {
           ),
           centerTitle: true,
           actions: <Widget>[
-            IconButton(
-                icon: Icon(FontAwesomeIcons.user, color: Colors.white),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AboutDeveloper(),
-                    ),
-                  );
-                })
+            buildAboutDev(context)
           ],
         ),
         body: ListView(
@@ -84,5 +75,18 @@ class ResultPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  IconButton buildAboutDev(BuildContext context) {
+    return IconButton(
+              icon: Icon(FontAwesomeIcons.user, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutDeveloper(),
+                  ),
+                );
+              });
   }
 }

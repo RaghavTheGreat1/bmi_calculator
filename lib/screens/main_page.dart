@@ -2,6 +2,7 @@ import 'package:bmi_calculator/themes/bold_text_label.dart';
 import 'package:bmi_calculator/themes/customized_icon.dart';
 import 'package:bmi_calculator/themes/material_card_label.dart';
 import 'package:bmi_calculator/themes/constant_colors.dart';
+import 'package:bmi_calculator/themes/dark_theme.dart';
 
 import 'package:bmi_calculator/cards_and_buttons/material_card.dart';
 import 'package:bmi_calculator/cards_and_buttons/tappable_material_cards.dart';
@@ -38,26 +39,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: kPrimaryDarkThemeColor,
-        scaffoldBackgroundColor: kScaffoldDarkThemeBackgroundColor,
-        textTheme: GoogleFonts.openSansTextTheme(),
-      ),
+      theme: buildDarkThemeData(),
       home: Scaffold(
         appBar: AppBar(
           title: Text("BMI CALCULATOR"),
           centerTitle: true,
           actions: <Widget>[
-            IconButton(
-                icon: Icon(FontAwesomeIcons.user, color: Colors.white),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AboutDeveloper(),
-                    ),
-                  );
-                })
+            buildAboutDev(context)
           ],
         ),
         body: ListView(
@@ -65,223 +53,260 @@ class _MainPageState extends State<MainPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                TappableMaterialCard(
-                  childCard: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CustomizedIcon(
-                        icon: FontAwesomeIcons.mars,
-                        iconColor: selectedGender == Gender.male
-                            ? kActiveLabelAndIconColor
-                            : kInactiveLabelAndIconColor,
-                      ),
-                      MaterialCardLabel(
-                        labelText: "MALE",
-                        labelTextColor: selectedGender == Gender.male
-                            ? kActiveLabelAndIconColor
-                            : kInactiveLabelAndIconColor,
-                      ),
-                    ],
-                  ),
-                  onMaterialCardTap: () {
-                    setState(() {
-                      selectedGender = Gender.male;
-                    });
-                  },
-                ),
-                TappableMaterialCard(
-                  childCard: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CustomizedIcon(
-                        icon: FontAwesomeIcons.venus,
-                        iconColor: selectedGender == Gender.female
-                            ? kActiveLabelAndIconColor
-                            : kInactiveLabelAndIconColor,
-                      ),
-                      MaterialCardLabel(
-                        labelText: "FEMALE",
-                        labelTextColor: selectedGender == Gender.female
-                            ? kActiveLabelAndIconColor
-                            : kInactiveLabelAndIconColor,
-                      ),
-                    ],
-                  ),
-                  onMaterialCardTap: () {
-                    setState(() {
-                      selectedGender = Gender.female;
-                    });
-                  },
-                ),
+                buildMaleCard(),
+                buildFemaleCard(),
               ],
             ),
-            MaterialCard(
-              materialCardColor: kMaterialCardColor,
-              childCard: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  MaterialCardLabel(
-                    labelText: "HEIGHT",
-                    labelTextColor: Color(0xFF8D8E98),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: <Widget>[
-                      BoldTextLabel(
-                        height.toStringAsFixed(0),
-                      ),
-                      Text(
-                        "CM",
-                        style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                            color: Color(0xFF8D8E98),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  SliderTheme(
-                    data: SliderThemeData(
-                      thumbColor: kThumbColor,
-                      activeTrackColor: kActiveTrackColor,
-                      inactiveTickMarkColor: kInactiveTrackColor,
-                    ),
-                    child: Slider(
-                      min: 50.0,
-                      max: 280.0,
-                      value: height,
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue;
-                        });
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            buildHeightCard(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Expanded(
-                  child: MaterialCard(
-                    materialCardColor: kMaterialCardColor,
-                    childCard: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        MaterialCardLabel(
-                          labelText: 'WEIGHT',
-                          labelTextColor: Color(0xFF8D8E98),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic,
-                          children: <Widget>[
-                            BoldTextLabel(
-                              weight.toStringAsFixed(0),
-                            ),
-                            MaterialCardLabel(
-                                labelText: "KG",
-                                labelTextColor: Color(0xFF8D8E98))
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            RoundedIconButton(
-                              icon: FontAwesomeIcons.minus,
-                              onUserTap: () {
-                                setState(() {
-                                  weight > 1 ? weight-- : weight = 1;
-                                });
-                              },
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            RoundedIconButton(
-                              icon: FontAwesomeIcons.plus,
-                              onUserTap: () {
-                                setState(() {
-                                  weight < 635 ? weight++ : weight = 635;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: MaterialCard(
-                    materialCardColor: kMaterialCardColor,
-                    childCard: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        MaterialCardLabel(
-                          labelText: 'AGE',
-                          labelTextColor: Color(0xFF8D8E98),
-                        ),
-                        BoldTextLabel(
-                          age.toStringAsFixed(0),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            RoundedIconButton(
-                              icon: FontAwesomeIcons.minus,
-                              onUserTap: () {
-                                setState(() {
-                                  age > 1 ? age-- : age = 1;
-                                });
-                              },
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            RoundedIconButton(
-                              icon: FontAwesomeIcons.plus,
-                              onUserTap: () {
-                                setState(() {
-                                  age < 150 ? age++ : age = 150;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                buildWeightCard(),
+                buildAgeCard(),
               ],
             ),
-            BottomButton(
-              displayText: 'CALCULATE',
-              onUserTap: () {
-                BmiFunctionality bmiCalculation = BmiFunctionality(
-                  height: height,
-                  weight: weight,
-                );
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return ResultPage(
-                        bmiResults: bmiCalculation.bmiCalculation(),
-                        bmiInterpret: bmiCalculation.bmiInterpretation(),
-                        bmiTxt: bmiCalculation.bmiResultText(),
-                        bmiTxtColor: bmiCalculation.bmiResultTextColor());
-                  }),
-                );
-              },
-            ),
+            buildBottomButton(context),
           ],
         ),
       ),
     );
+  }
+
+  BottomButton buildBottomButton(BuildContext context) {
+    return BottomButton(
+            displayText: 'CALCULATE',
+            onUserTap: () {
+              BmiFunctionality bmiCalculation = BmiFunctionality(
+                height: height,
+                weight: weight,
+              );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return ResultPage(
+                      bmiResults: bmiCalculation.bmiCalculation(),
+                      bmiInterpret: bmiCalculation.bmiInterpretation(),
+                      bmiTxt: bmiCalculation.bmiResultText(),
+                      bmiTxtColor: bmiCalculation.bmiResultTextColor());
+                }),
+              );
+            },
+          );
+  }
+
+  Expanded buildAgeCard() {
+    return Expanded(
+                child: MaterialCard(
+                  materialCardColor: kMaterialCardColor,
+                  childCard: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      MaterialCardLabel(
+                        labelText: 'AGE',
+                        labelTextColor: Color(0xFF8D8E98),
+                      ),
+                      BoldTextLabel(
+                        age.toStringAsFixed(0),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundedIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onUserTap: () {
+                              setState(() {
+                                age > 1 ? age-- : age = 1;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          RoundedIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onUserTap: () {
+                              setState(() {
+                                age < 150 ? age++ : age = 150;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              );
+  }
+
+  Expanded buildWeightCard() {
+    return Expanded(
+                child: MaterialCard(
+                  materialCardColor: kMaterialCardColor,
+                  childCard: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      MaterialCardLabel(
+                        labelText: 'WEIGHT',
+                        labelTextColor: Color(0xFF8D8E98),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        textBaseline: TextBaseline.alphabetic,
+                        children: <Widget>[
+                          BoldTextLabel(
+                            weight.toStringAsFixed(0),
+                          ),
+                          MaterialCardLabel(
+                              labelText: "KG",
+                              labelTextColor: Color(0xFF8D8E98))
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundedIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onUserTap: () {
+                              setState(() {
+                                weight > 1 ? weight-- : weight = 1;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          RoundedIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onUserTap: () {
+                              setState(() {
+                                weight < 635 ? weight++ : weight = 635;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              );
+  }
+
+  MaterialCard buildHeightCard() {
+    return MaterialCard(
+            materialCardColor: kMaterialCardColor,
+            childCard: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                MaterialCardLabel(
+                  labelText: "HEIGHT",
+                  labelTextColor: Color(0xFF8D8E98),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: <Widget>[
+                    BoldTextLabel(
+                      height.toStringAsFixed(0),
+                    ),
+                    Text(
+                      "CM",
+                      style: GoogleFonts.openSans(
+                        textStyle: TextStyle(
+                          color: Color(0xFF8D8E98),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SliderTheme(
+                  data: SliderThemeData(
+                    thumbColor: kThumbColor,
+                    activeTrackColor: kActiveTrackColor,
+                    inactiveTickMarkColor: kInactiveTrackColor,
+                  ),
+                  child: Slider(
+                    min: 50.0,
+                    max: 280.0,
+                    value: height,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+          );
+  }
+
+  TappableMaterialCard buildFemaleCard() {
+    return TappableMaterialCard(
+                childCard: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CustomizedIcon(
+                      icon: FontAwesomeIcons.venus,
+                      iconColor: selectedGender == Gender.female
+                          ? kActiveLabelAndIconColor
+                          : kInactiveLabelAndIconColor,
+                    ),
+                    MaterialCardLabel(
+                      labelText: "FEMALE",
+                      labelTextColor: selectedGender == Gender.female
+                          ? kActiveLabelAndIconColor
+                          : kInactiveLabelAndIconColor,
+                    ),
+                  ],
+                ),
+                onMaterialCardTap: () {
+                  setState(() {
+                    selectedGender = Gender.female;
+                  });
+                },
+              );
+  }
+
+  TappableMaterialCard buildMaleCard() {
+    return TappableMaterialCard(
+                childCard: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CustomizedIcon(
+                      icon: FontAwesomeIcons.mars,
+                      iconColor: selectedGender == Gender.male
+                          ? kActiveLabelAndIconColor
+                          : kInactiveLabelAndIconColor,
+                    ),
+                    MaterialCardLabel(
+                      labelText: "MALE",
+                      labelTextColor: selectedGender == Gender.male
+                          ? kActiveLabelAndIconColor
+                          : kInactiveLabelAndIconColor,
+                    ),
+                  ],
+                ),
+                onMaterialCardTap: () {
+                  setState(() {
+                    selectedGender = Gender.male;
+                  });
+                },
+              );
+  }
+
+  IconButton buildAboutDev(BuildContext context) {
+    return IconButton(
+              icon: Icon(FontAwesomeIcons.user, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutDeveloper(),
+                  ),
+                );
+              });
   }
 }
